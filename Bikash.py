@@ -40,11 +40,7 @@ async def is_admins(chat_id: int):
 async def start_(client: Client, message: Message):
     await message.reply_photo(
         photo=f"{BOT_IMAGE}",
-        caption=f"""**
-\n\n\n\n
-
-
-**""",
+        caption=f"""""",
     reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -61,12 +57,12 @@ async def start_(client: Client, message: Message):
 async def start(client: Client, message: Message):
     await message.reply_photo(
         photo=f"{BOT_IMAGE}",
-        caption=f"""""",
+        caption=f"""ᴜsᴇ ᴄᴍᴅ /chatbot - [on|off]""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "", url=f"")
+                        "")
                 ]
             ]
         ),
@@ -92,9 +88,9 @@ async def chatbotofd(client, message):
     is_v = v.find_one({"chat_id": message.chat.id})
     if not is_v:
         v.insert_one({"chat_id": message.chat.id})
-        await message.reply_text(f"")
+        await message.reply_text(f"ᴄʜᴀᴛ ʙᴏᴛ ᴍᴏᴅᴇ ᴏɴ")
     if is_v:
-        await message.reply_text(f"")
+        await message.reply_text(f"ᴄʜᴀᴛ ʙᴏᴛ ᴍᴏᴅᴇ ᴏғғ")
     
 
 @bot.on_message(
@@ -110,21 +106,21 @@ async def chatboton(client, message):
             await is_admins(chat_id)
         ):
             return await message.reply_text(
-                "You are not admin"
+                "ʙᴀᴅᴀ ʜᴏ ᴋᴀʀ ᴀᴅᴍɪɴ ʙᴀɴ ᴊᴀ ᴘᴇʜʟᴇ"
             )
     is_v = v.find_one({"chat_id": message.chat.id})
     if not is_v:           
-        await message.reply_text(f"")
+        await message.reply_text(f"ᴄʜᴀᴛ ʙᴏᴛ ᴍᴏᴅᴇ ᴀʟʀᴇᴀᴅʏ ᴏɴ")
     if is_v:
         v.delete_one({"chat_id": message.chat.id})
-        await message.reply_text(f"")
+        await message.reply_text(f"ᴄʜᴀᴛ ʙᴏᴛ ᴍᴏᴅᴇ ᴀʟʀᴇᴀᴅʏ ᴏғғ")
     
 
 @bot.on_message(
     filters.command("chatbot", prefixes=["/", ".", "?", "-"])
     & ~filters.private)
 async def chatbot(client, message):
-    await message.reply_text(f"")
+    await message.reply_text(f"**ᴜsᴇ ᴄᴍᴅ :**\n/chatbot [on|off]")
 
 
 @bot.on_message(
@@ -346,5 +342,5 @@ async def vprivatesticker(client: Client, message: Message):
                await message.reply_sticker(f"{hey}")
        
 bot.start()
-print("start")
+print("sᴛᴀʀᴛ")
 idle()
