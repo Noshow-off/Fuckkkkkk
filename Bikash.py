@@ -40,7 +40,7 @@ async def is_admins(chat_id: int):
 async def start_(client: Client, message: Message):
     await message.reply_photo(
         photo=f"{BOT_IMAGE}",
-        caption=f"""""",
+        caption=f"""**𝐍𝐢𝐤𝐤𝐢**""",
     reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -57,12 +57,12 @@ async def start_(client: Client, message: Message):
 async def start(client: Client, message: Message):
     await message.reply_photo(
         photo=f"{BOT_IMAGE}",
-        caption=f"""ᴜsᴇ ᴄᴍᴅ /chatbot - [on|off]""",
+        caption=f"""ᴜsᴇ ᴄᴏᴍᴍᴀɴᴅ \n\n [sᴜᴘᴘᴏʀᴛ](https://t.me/{SUPPORT_GROUP})  🥀\n\n /chatbot - [on|off]""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "")
+                        "•ʜᴇʟᴘ•", url=f"https://t.me/thecchub")
                 ]
             ]
         ),
@@ -83,14 +83,14 @@ async def chatbotofd(client, message):
            await is_admins(chat_id)
         ):
            return await message.reply_text(
-                ""
+                "ʏᴏᴜ ɴᴏᴛ ᴀᴅᴍɪɴ"
             )
     is_v = v.find_one({"chat_id": message.chat.id})
     if not is_v:
         v.insert_one({"chat_id": message.chat.id})
-        await message.reply_text(f"ᴄʜᴀᴛ ʙᴏᴛ ᴍᴏᴅᴇ ᴏɴ")
+        await message.reply_text(f"ᴄʜᴀᴛ ʙᴏᴛ ᴍᴏᴅᴇ ᴅɪsᴀʙʟᴇ\n\n [sᴜᴘᴘᴏʀᴛ](https://t.me/{SUPPORT_GROUP})")
     if is_v:
-        await message.reply_text(f"ᴄʜᴀᴛ ʙᴏᴛ ᴍᴏᴅᴇ ᴏғғ")
+        await message.reply_text(f"ᴄʜᴀᴛ ʙᴏᴛ ᴍᴏᴅᴇ ᴀʟʀᴇᴀᴅʏ ᴅɪsᴀʙʟᴇ \n\n [sᴜᴘᴘᴏʀᴛ](https://t.me/{SUPPORT_GROUP})")
     
 
 @bot.on_message(
@@ -106,21 +106,21 @@ async def chatboton(client, message):
             await is_admins(chat_id)
         ):
             return await message.reply_text(
-                "ʙᴀᴅᴀ ʜᴏ ᴋᴀʀ ᴀᴅᴍɪɴ ʙᴀɴ ᴊᴀ ᴘᴇʜʟᴇ"
+                "You are not admin"
             )
     is_v = v.find_one({"chat_id": message.chat.id})
     if not is_v:           
-        await message.reply_text(f"ᴄʜᴀᴛ ʙᴏᴛ ᴍᴏᴅᴇ ᴀʟʀᴇᴀᴅʏ ᴏɴ")
+        await message.reply_text(f"ᴄʜᴀᴛ ʙᴏᴛ ᴍᴏᴅᴇ ᴀʟʀᴇᴀᴅʏ ᴇɴᴀʙʟᴇ \n\n [sᴜᴘᴘᴏʀᴛ](https://t.me/{SUPPORT_GROUP})")
     if is_v:
         v.delete_one({"chat_id": message.chat.id})
-        await message.reply_text(f"ᴄʜᴀᴛ ʙᴏᴛ ᴍᴏᴅᴇ ᴀʟʀᴇᴀᴅʏ ᴏғғ")
+        await message.reply_text(f"ᴄʜᴀᴛ ʙᴏᴛ ᴍᴏᴅᴇ ᴇɴᴀʙʟᴇ \n\n [sᴜᴘᴘᴏʀᴛ](https://t.me/{SUPPORT_GROUP})")
     
 
 @bot.on_message(
     filters.command("chatbot", prefixes=["/", ".", "?", "-"])
     & ~filters.private)
 async def chatbot(client, message):
-    await message.reply_text(f"**ᴜsᴇ ᴄᴍᴅ :**\n/chatbot [on|off]")
+    await message.reply_text(f"**ᴜsᴇ ᴄᴍᴅ :**\n/chatbot [on|off] ᴏɴʟʏ ᴜsᴇ ɪɴ ɢʀᴏᴜᴘ ᴄʜᴀᴛ !\n\n [sᴜᴘᴘᴏʀᴛ](https://t.me/{SUPPORT_GROUP})")
 
 
 @bot.on_message(
@@ -342,5 +342,5 @@ async def vprivatesticker(client: Client, message: Message):
                await message.reply_sticker(f"{hey}")
        
 bot.start()
-print("sᴛᴀʀᴛ")
+print("SUCCESSFULLY")
 idle()
